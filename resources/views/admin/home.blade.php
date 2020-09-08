@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a class="nav-link" href="{{ route('tag.index') }}">Tags <span class="sr-only">(current)</span></a>
                 </div>
             </div>
         </div>
