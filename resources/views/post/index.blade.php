@@ -24,12 +24,12 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($tags as $tag)
+            @foreach ($posts as $post)
                 <tr>
-                    <form action="{{ route('post.destroy', $tag->id) }}" method="POST">
-                    <th scope="row">{{ $tag->id }}</th>
-                    <td>{{ $tag->tag }}</td>
-                    <td><a href="{{ route('post.edit', $tag->id) }}"  class="btn btn-primary">EDITAR</a> </td>
+                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+                    <th scope="row">{{ $post->id }}</th>
+                    <td>{{ $post->title }}</td>
+                    <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary">EDITAR</a> </td>
                     <td>
                         @csrf
                         @method('DELETE')

@@ -15,8 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->text('post');
+            $table->string('title');
+            $table->string('resume');
+            $table->unsignedBigInteger('id_tag');
             $table->timestamps();
+
+            $table->foreign('id_tag')->references('id')->on('tags')->onDelete('no action')->onUpdate('no action');
         });
+
     }
 
     /**
