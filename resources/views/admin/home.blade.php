@@ -15,6 +15,7 @@
                     @endif
 
                     <a class="nav-link" href="{{ route('tag.index') }}">Tags <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('post.index') }}">Posts</a>
                 </div>
             </div>
         </div>
