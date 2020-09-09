@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -24,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("post.create");
+        return view("post.create", ['tags' => Tag::all()]);
     }
 
     /**
@@ -35,7 +36,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Post::create($request->all());
+
+        return redirect()->route('post.index')->with('sucess', 'Postagem adicionada com sucesso');
     }
 
     /**
