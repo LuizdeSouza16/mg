@@ -13,4 +13,8 @@ class Post extends Model
     protected $guarded = ['id'];
 
     public $timestamps = true;
+
+    public function tag() {
+        return $this->belongsTo(Tag::class, 'id_tag');
+    }
 }

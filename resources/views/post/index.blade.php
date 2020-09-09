@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Post</th>
-                    <th scope="col"></th>
+                    <th scope="col">Tag</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -28,7 +28,8 @@
                 <tr>
                     <form action="{{ route('post.destroy', $post->id) }}" method="POST">
                     <th scope="row">{{ $post->id }}</th>
-                    <td>{{ $post->title }}</td>
+                    <td> <b> {{ $post->title }}</b></td>
+                    <td> {{ $post->tag->tag }}</td>
                     <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary">EDITAR</a> </td>
                     <td>
                         @csrf
