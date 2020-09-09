@@ -4,7 +4,8 @@
 <div class="container">
     <h1 class="text-center">Administração dos tag</h1>
     <p class="mb-2">
-        <a href="{{ route('tag.create') }}" class="btn btn-success">Adicionar</a>
+        <a href="{{ route('tag.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
     </p>
 
     @if ($message = Session::get('success'))
@@ -17,9 +18,8 @@
         <table class="table-sm table-fluid">
             <thead>
                 <tr>
-                    <th scope="col">TAG</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th class="text-center" scope="col">TAG</th>
+                    <th class="text-right">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +34,6 @@
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
                     </td>
-
                 </tr>
             @endforeach
             </tbody>
