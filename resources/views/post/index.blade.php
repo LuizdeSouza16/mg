@@ -32,12 +32,13 @@
                     <td> <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
                     <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary">MOSTRAR</a></th>
-                    <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary">EDITAR</a> </td>
+                    <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
                     <td>
                         <form action="{{ route('post.destroy', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
                         </form>
                     </td>
 

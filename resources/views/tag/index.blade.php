@@ -26,12 +26,12 @@
             @foreach ($tags as $tag)
                 <tr>
                     <td>{{ $tag->tag }}</td>
-                    <td><a href="{{ route('tag.edit', $tag->id) }}"  class="btn btn-primary">EDITAR</a> </td>
+                    <td><a href="{{ route('tag.edit', $tag->id) }}"  class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
                     <td>
                         <form action="{{ route('tag.destroy', $tag->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
                     </td>
 
