@@ -17,9 +17,10 @@
         <table class="table-sm table-fluid">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+
                     <th scope="col">Post</th>
                     <th scope="col">Tag</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -27,9 +28,10 @@
             @foreach ($posts as $post)
                 <tr>
                     <form action="{{ route('post.destroy', $post->id) }}" method="POST">
-                    <th scope="row">{{ $post->id }}</th>
+
                     <td> <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
+                    <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary">MOSTRAR</a></th>
                     <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary">EDITAR</a> </td>
                     <td>
                         @csrf
