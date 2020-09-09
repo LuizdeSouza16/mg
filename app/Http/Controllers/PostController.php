@@ -61,7 +61,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $tags = Tag::all();
+        return view('post.edit', ['post' => $post, 'tags' => $tags]);
     }
 
     /**

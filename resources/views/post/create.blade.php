@@ -13,7 +13,7 @@
                 <input type="text" class="form-control" id="resume" name="resume" placeholder="Insira o resumo da matéria" required>
 
                 <label for="post">Matéria</label>
-                <textarea class="form-control" name="post" id="post" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="post" id="post" cols="60" rows="10"></textarea>
 
                 <label for="id_tag">Tag</label>
                <select class="form-control" name="id_tag" id="id_tag">
