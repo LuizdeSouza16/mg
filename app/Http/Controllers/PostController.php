@@ -87,8 +87,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
+        try {
+            $post->delete();
+        } catch (\Throwable $th) {
+            echo $th;
+            die;
+        }
 
-        return redirect()->route('tag.index')->with('success', 'Postagem excluída com sucesso');
+        return redirect()->route('post.index')->with('success', 'Postagem excluída com sucesso');
     }
 }

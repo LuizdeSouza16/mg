@@ -27,18 +27,20 @@
             <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+
 
                     <td> <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
                     <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary">MOSTRAR</a></th>
                     <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary">EDITAR</a> </td>
                     <td>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                        <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                        </form>
                     </td>
-                </form>
+
                 </tr>
             @endforeach
             </tbody>
