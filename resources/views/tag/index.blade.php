@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center">Index da tag</h1>
+    <h1 class="text-center">Administração dos tag</h1>
     <p class="mb-2">
         <a href="{{ route('tag.create') }}" class="btn btn-success">Adicionar</a>
     </p>
@@ -17,7 +17,6 @@
         <table class="table-sm table-fluid">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">TAG</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -26,7 +25,6 @@
             <tbody>
             @foreach ($tags as $tag)
                 <tr>
-                    <th scope="row">{{ $tag->id }}</th>
                     <td>{{ $tag->tag }}</td>
                     <td><a href="{{ route('tag.edit', $tag->id) }}"  class="btn btn-primary">EDITAR</a> </td>
                     <td>

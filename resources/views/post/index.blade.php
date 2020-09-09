@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center">Index dos Posts</h1>
+    <h1 class="text-center">Administração dos Posts</h1>
     <p class="mb-2">
         <a href="{{ route('post.create') }}" class="btn btn-success">Adicionar</a>
     </p>
