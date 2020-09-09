@@ -30,7 +30,8 @@
 
                     <td> <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
-                    <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary">MOSTRAR</a></td>
+                    <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
+                    </a></td>
                     <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
                     <td>
                         <form action="{{ route('post.destroy', $post->id) }}" method="POST">
