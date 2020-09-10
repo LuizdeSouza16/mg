@@ -1,19 +1,19 @@
 <div class="form-group">
     @csrf
     <label for="title">Title</label>
-    <input type="text" class="form-control" id="title" name="title" value="{{ $post->title ?? old('title') }}" placeholder="Insira o titulo da matéria" required>
+    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Insira o titulo da matéria" required>
 
     <label for="resume">Resumo</label>
-    <input type="text" class="form-control" id="resume" name="resume" value="{{ $post->resume ?? old('resume') }}" placeholder="Insira o resumo da matéria" required>
+    <input type="text" class="form-control" id="resume" name="resume" value="{{ old('resume') }}" placeholder="Insira o resumo da matéria" required>
 
     <label for="post">Matéria</label>
-    <textarea class="form-control" name="post" id="post" cols="60" rows="10">{{ $post->post ?? old('post') }}</textarea>
+    <textarea class="form-control" name="post" id="post" cols="60" rows="10">{{ old('post') }}</textarea>
 
     <label for="id_tag">Tag</label>
    <select class="form-control" name="id_tag" id="id_tag">
         <option >Selecione a Tag</option>
         @foreach ($tags as $tag)
-            <option value="{{$tag->id}}">{{$tag->tag}}</option>
+            <option  value="{{$tag->id}}">{{$tag->tag}}</option>
         @endforeach
    </select>
 
