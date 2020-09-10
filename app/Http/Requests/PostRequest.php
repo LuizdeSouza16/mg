@@ -24,9 +24,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3|max:255',
-            'resume' => 'required|min:3|max:255',
-            'post' => 'required|min:3|',
+            'title' => 'required|string|min:3|max:255',
+            'resume' => 'required|string|min:3|max:255',
+            'post' => 'required|string|min:3|',
             'id_tag'=> 'nullable|numeric',
             'post_img' => 'nullable|image'
         ];
@@ -40,7 +40,11 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'The :atribbute fild can not be empty',
+            'title.required' => 'Preencha os campo Título!',
+            'resume.required' => 'Preencha os campo Resumo!',
+            'post.required' => 'Preencha os campo Matéria!',
+
+            'resume.min' => 'O campo Resumo precisa de no mínimo de 3 caracteres',
         ];
     }
 }

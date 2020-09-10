@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -35,19 +36,21 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-         $data = $request->only('title', 'resume', 'post', 'id_tag');
+        $request->validate($request->rules());
 
-         if ($request->file('post_img')->isValid() && $request->hasFile('post_img') ) {
-             $imagePath = $request->post_img->store('posts');
+        $data = $request->only('title', 'resume', 'post', 'id_tag');
 
-             $data['post_img'] = $imagePath;
-         }
+        if ($request->file('post_img')->isValid() && $request->hasFile('post_img') ) {
+            $imagePath = $request->post_img->store('posts');
 
-         Post::create($data);
+            $data['post_img'] = $imagePath;
+        }
 
-         return redirect()->route('post.index')->with('sucess', 'Postagem adicionada com sucesso');
+        Post::create($data);
+
+        return redirect()->route('post.index')->with('sucess', 'Postagem adicionada com sucesso');
     }
 
     /**
@@ -80,11 +83,13 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         if (!$post) {
             return redirect()->back();
         }
+
+        $request->validate($request->rules());
 
         $data = $request->all();
 

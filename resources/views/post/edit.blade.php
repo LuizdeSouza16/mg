@@ -3,19 +3,9 @@
 @section('content')
 <div class="container-fluid">
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    @include('_includes.errors')
 
     <div class="row justify-content-center">
-
-        @include('_includes.errors')
 
         <form action=" {{ route('post.update', $post->id) }} " method="post" enctype="multipart/form-data">
 

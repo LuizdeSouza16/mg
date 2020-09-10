@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -33,8 +34,10 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
+        $request->validate($request->rules());
+
         Tag::create($request->all());
 
         return redirect()->route('tag.index')->with('sucess', 'Tag adicionada com sucesso');
@@ -69,11 +72,9 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag)
     {
-        $request->validate([
-            'tag' => 'required|min:3'
-        ]);
+        $request->validate($request->rules());
 
         $tag->update($request->all());
 

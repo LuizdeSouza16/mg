@@ -24,7 +24,7 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag' => 'required|min:3'
+            'tag' => 'required|string|min:3'
         ];
     }
 
@@ -36,7 +36,8 @@ class TagRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'The :atribbute fild can not be empty',
+            'tag.required' => 'O campo tag é necessário!',
+            'tag.min' => 'O campo tag é necessário no mínimo 3 caracteres!',
         ];
     }
 }
