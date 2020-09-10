@@ -14,7 +14,11 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
+
             <h1>{{$post->title}}</h1>
+            @if ($post->post_img)
+                <img src="{{ url("storage/{$post->post_img}") }}" alt="{{$post->title}}">
+            @endif
             <h4 class="text-muted">{{$post->resume}}</h4>
             <p style="white-space: pre-line;">{{$post->post}}</p>
 

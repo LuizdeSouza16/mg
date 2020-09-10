@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -36,10 +37,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+         $data = $request->only('title', 'resume', 'post', 'id_tag');
 
-        Post::create($request->all());
+         if ($request->file('post_img')->isValid() && $request->hasFile('post_img') ) {
+             $imagePath = $request->post_img->store('posts');
 
-        return redirect()->route('post.index')->with('sucess', 'Postagem adicionada com sucesso');
+             $data['post_img'] = $imagePath;
+         }
+
+         Post::create($data);
+
+         return redirect()->route('post.index')->with('sucess', 'Postagem adicionada com sucesso');
     }
 
     /**
@@ -74,7 +82,24 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->all());
+        if (!$post) {
+            return redirect()->back();
+        }
+
+        $data = $request->all();
+
+        if ($request->post_img->isValid() && $request->hasFile('post_img') ) {
+
+            if ($post->post_img && Storage::exists($post->post_img)) {
+                Storage::delete($post->post_img);
+            }
+
+            $imagePath = $request->post_img->store('posts');
+
+            $data['post_img'] = $imagePath;
+        }
+
+        $post->update($data);
 
         return redirect()->route('post.index')->with('sucess', 'Postagem atualizada com sucesso');
     }

@@ -27,7 +27,8 @@ class PostRequest extends FormRequest
             'title' => 'required|min:3|max:255',
             'resume' => 'required|min:3|max:255',
             'post' => 'required|min:3|',
-            'id_tag'=> 'required|numeric'
+            'id_tag'=> 'nullable|numeric',
+            'post_img' => 'nullable|image'
         ];
     }
 

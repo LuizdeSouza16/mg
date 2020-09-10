@@ -18,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->text('post');
             $table->string('title');
             $table->string('resume');
-            $table->unsignedBigInteger('id_tag');
+            $table->unsignedBigInteger('id_tag')->nullable();
+            $table->string('post_img')->nullable();
             $table->timestamps();
 
             $table->foreign('id_tag')->references('id')->on('tags')->onDelete('no action')->onUpdate('no action');
