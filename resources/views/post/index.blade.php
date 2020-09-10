@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="col align-items-center" >
     <h1 class="text-center">Administração dos Posts</h1>
     <p class="mb-2">
         <a href="{{ route('post.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
@@ -12,8 +12,7 @@
 
    @include('_includes.errors')
 
-    <div class="row justify-content-center">
-        <table class="table-sm table-fluid">
+        <table class="table table-sm table-fluid table-borderless">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">Post</th>
@@ -24,7 +23,7 @@
             <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td> <b> {{ $post->title }}</b></td>
+                    <td class="text-center" > <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
                     <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
                     </a></td>
@@ -41,7 +40,6 @@
             @endforeach
             </tbody>
         </table>
-    </div>
 </div>
 
 @endsection
