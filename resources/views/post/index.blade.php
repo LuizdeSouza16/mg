@@ -26,8 +26,6 @@
             <tbody>
             @foreach ($posts as $post)
                 <tr>
-
-
                     <td> <b> {{ $post->title }}</b></td>
                     <td> {{ $post->tag->tag }}</td>
                     <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
@@ -41,7 +39,6 @@
                             </button>
                         </form>
                     </td>
-
                 </tr>
             @endforeach
             </tbody>
