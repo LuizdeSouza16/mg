@@ -12,7 +12,7 @@
 
    @include('_includes.errors')
 
-    <table class="table table-sm table-responsive table-borderless">
+    <table class="table  table-responsive-sm table-borderless">
         <thead>
             <tr>
                 <th scope="col" class="text-center">Post</th>

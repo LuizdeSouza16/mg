@@ -11,7 +11,7 @@
 
    @include('_includes.messages')
 
-    <table class="table table-sm table-fluid table-borderless">
+    <table class="table table-responsive-sm table-borderless">
         <thead>
             <tr>
                 <th class="text-center" scope="col">TAG</th>
