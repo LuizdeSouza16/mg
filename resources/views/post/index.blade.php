@@ -4,7 +4,7 @@
 <div class="col align-items-center" >
     <h1 class="text-center">Administração dos Posts</h1>
     <p class="mb-2">
-        <a href="{{ route('post.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>
+        <a href="{{ route('post.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>Adicionar
         </a>
     </p>
 
@@ -12,34 +12,34 @@
 
    @include('_includes.errors')
 
-        <table class="table table-sm table-fluid table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">Post</th>
-                    <th class="text-center">Tag</th>
-                    <th class="text-right">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($posts as $post)
-                <tr>
-                    <td class="text-center" > <b> {{ $post->title }}</b></td>
-                    <td> {{ $post->tag->tag }}</td>
-                    <td ><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
-                    </a></td>
-                    <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
-                    <td>
-                        <form action="{{ route('post.destroy', $post->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    <table class="table table-sm table-fluid table-borderless">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Post</th>
+                <th class="text-center">Tag</th>
+                <th class="text-right">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($posts as $post)
+            <tr>
+                <td class="text-center" > <b> {{ $post->title }}</b></td>
+                <td> {{ $post->tag->tag }}</td>
+                <td><a href="{{ route('post.show', $post->id) }}"  class="btn btn-secondary"><i class="fa fa-eye" aria-hidden="true"></i>
+                </a></td>
+                <td><a href="{{ route('post.edit', $post->id) }}"  class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                <td>
+                    <form action="{{ route('post.destroy', $post->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 </div>
 
 @endsection

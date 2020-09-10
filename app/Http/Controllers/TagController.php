@@ -44,16 +44,7 @@ class TagController extends Controller
         return redirect()->route('tag.index')->with('sucess', 'Tag adicionada com sucesso');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tag $tag)
-    {
 
-    }
 
     /**
      * Show the form for editing the specified resource.
