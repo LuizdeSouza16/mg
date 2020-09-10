@@ -8,11 +8,9 @@
         </a>
     </p>
 
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
+   @include('_includes.messages')
+
+   @include('_includes.errors')
 
     <div class="row justify-content-center">
         <table class="table-sm table-fluid">

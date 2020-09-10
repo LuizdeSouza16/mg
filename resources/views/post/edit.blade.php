@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -13,6 +14,9 @@
     @endif
 
     <div class="row justify-content-center">
+
+        @include('_includes.errors')
+
         <form action=" {{ route('post.update', $post->id) }} " method="post" enctype="multipart/form-data">
 
             @method('PUT')
