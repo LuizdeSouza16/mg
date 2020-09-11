@@ -13,4 +13,16 @@ class PublicController extends Controller
 
         return view('public.index', compact('posts'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+
+    public function show(Post $post)
+    {
+        return view('public.show', compact('post'));
+    }
 }

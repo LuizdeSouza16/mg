@@ -1,9 +1,7 @@
-@extends('layouts.app')
+@extends('public.layout')
+
 
 @section('content')
-<div class="container-fluid">
-
-    @include('_includes.errors')
 
     <div class="container">
         <div class="row">
@@ -12,7 +10,7 @@
               <div class="text-center">
                 <img src="{{ url("storage/{$post->post_img}") }}" alt="{{ $post->title }}" >
               </div>
-              <p><a class="mx-5 btn-xs btn-primary"> {{ $post->tag->tag }} </a></p>
+              <p><button class="mx-5 my-1 btn-xs btn-primary"> {{ $post->tag->tag }} </button></p>
               <h6 class="mx-5 my-1 text-muted"> {{ $post->resume }} </h6>
 
               <div class="col-12">
@@ -24,4 +22,5 @@
             </div>
         </div>
     </div>
+
 @endsection

@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'PublicController@index');
+Route::get('/noticia/{post}','PublicController@show')->name('noticia');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('tag', 'TagController');
-Route::resource('post', 'PostController');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::resource('tag', 'TagController')->middleware('auth');
+Route::resource('post', 'PostController')->middleware('auth');
 
 Auth::routes();

@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-4 post-h__image">
                     <a
-                        href="{{ route('post.show', $post->id) }} ">
+                        href="{{ route('noticia', $post->id) }} ">
                         <img src="{{ url("storage/{$post->post_img}") }} "
                             alt="{{ $post->title }}"
                             title="{{ $post->title }}"
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-lg-8">
                     <a
-                        href="{{ route('post.show', $post->id) }} ">
+                        href="{{ route('noticia', $post->id) }} ">
                         <h2 class="text-danger">{{ $post->title }}</h2>
                         <p class="text-muted"> {{ $post->resume }} </p>
                         <div class="text-dark">
@@ -30,6 +30,8 @@
             </div>
         </article>
         @endforeach
+
+        {!! $posts->links() !!}
 
     </div>
 

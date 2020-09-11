@@ -8,3 +8,11 @@
 @import '~bootstrap/scss/bootstrap';
 // font awesome
 @import '~font-awesome/scss/font-awesome';
+
+//button extra small
+.btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 2px;
+  }
