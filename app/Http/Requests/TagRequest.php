@@ -36,8 +36,8 @@ class TagRequest extends FormRequest
     public function messages()
     {
         return [
-            'tag.required' => 'O campo tag é necessário!',
-            'tag.min' => 'O campo tag é necessário no mínimo 3 caracteres!',
+            'required' => 'O campo :attribute é necessário!',
+            'min' => 'O campo :attribute é necessário no mínimo 3 caracteres!',
         ];
     }
 }

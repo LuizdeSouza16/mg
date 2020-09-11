@@ -40,11 +40,8 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Preencha os campo Título!',
-            'resume.required' => 'Preencha os campo Resumo!',
-            'post.required' => 'Preencha os campo Matéria!',
-
-            'resume.min' => 'O campo Resumo precisa de no mínimo de 3 caracteres',
+            'required' => 'Preencha o campo :attribute!',
+            'resume.min' => 'O campo :attribute precisa de no mínimo de 3 caracteres',
         ];
     }
 }
